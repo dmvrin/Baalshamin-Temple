@@ -18,7 +18,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Baalshamin_Temple_110k-miniature"
+			"name":"Baalshamin_Temple_110k_miniature_1"
 		}
 	],
 	"materials":[
@@ -26,8 +26,7 @@
 			"doubleSided":true,
 			"name":"Baalshamin_Temple-Walls",
 			"normalTexture":{
-				"index":0,
-				"scale":0.30000007152557373
+				"index":0
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
@@ -69,8 +68,7 @@
 			"doubleSided":true,
 			"name":"Baalshamin_Temple-FloorSand",
 			"normalTexture":{
-				"index":6,
-				"scale":0.8999999761581421
+				"index":6
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
@@ -107,8 +105,7 @@
 			},
 			"name":"Baalshamin_Temple-WallMortar",
 			"normalTexture":{
-				"index":10,
-				"scale":0.5
+				"index":10
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
@@ -121,7 +118,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Temple_Walls_LP.005",
+			"name":"Mesh",
 			"primitives":[
 				{
 					"attributes":{
@@ -281,7 +278,7 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":31347,
+			"count":31584,
 			"max":[
 				0.7016288042068481,
 				1.6373445987701416,
@@ -297,13 +294,13 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":31347,
+			"count":31584,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":31347,
+			"count":31584,
 			"type":"VEC2"
 		},
 		{
@@ -315,7 +312,7 @@
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":14224,
+			"count":14180,
 			"max":[
 				0.7641648650169373,
 				0.27183449268341064,
@@ -331,13 +328,13 @@
 		{
 			"bufferView":5,
 			"componentType":5126,
-			"count":14224,
+			"count":14180,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":6,
 			"componentType":5126,
-			"count":14224,
+			"count":14180,
 			"type":"VEC2"
 		},
 		{
@@ -349,7 +346,7 @@
 		{
 			"bufferView":8,
 			"componentType":5126,
-			"count":66085,
+			"count":66413,
 			"max":[
 				0.7404604554176331,
 				1.529531717300415,
@@ -365,13 +362,13 @@
 		{
 			"bufferView":9,
 			"componentType":5126,
-			"count":66085,
+			"count":66413,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":10,
 			"componentType":5126,
-			"count":66085,
+			"count":66413,
 			"type":"VEC2"
 		},
 		{
@@ -417,7 +414,7 @@
 		{
 			"bufferView":16,
 			"componentType":5126,
-			"count":29400,
+			"count":29242,
 			"max":[
 				0.570462703704834,
 				0.9628418684005737,
@@ -433,13 +430,13 @@
 		{
 			"bufferView":17,
 			"componentType":5126,
-			"count":29400,
+			"count":29242,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":18,
 			"componentType":5126,
-			"count":29400,
+			"count":29242,
 			"type":"VEC2"
 		},
 		{
@@ -451,7 +448,7 @@
 		{
 			"bufferView":20,
 			"componentType":5126,
-			"count":1573,
+			"count":1558,
 			"max":[
 				0.561886727809906,
 				0.6198343634605408,
@@ -467,13 +464,13 @@
 		{
 			"bufferView":21,
 			"componentType":5126,
-			"count":1573,
+			"count":1558,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":22,
 			"componentType":5126,
-			"count":1573,
+			"count":1558,
 			"type":"VEC2"
 		},
 		{
@@ -486,146 +483,146 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":376164,
+			"byteLength":379008,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":376164,
-			"byteOffset":376164,
+			"byteLength":379008,
+			"byteOffset":379008,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":250776,
-			"byteOffset":752328,
+			"byteLength":252672,
+			"byteOffset":758016,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":158916,
-			"byteOffset":1003104,
+			"byteOffset":1010688,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":170688,
-			"byteOffset":1162020,
+			"byteLength":170160,
+			"byteOffset":1169604,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":170688,
-			"byteOffset":1332708,
+			"byteLength":170160,
+			"byteOffset":1339764,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":113792,
-			"byteOffset":1503396,
+			"byteLength":113440,
+			"byteOffset":1509924,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":62106,
-			"byteOffset":1617188,
+			"byteOffset":1623364,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":793020,
-			"byteOffset":1679296,
+			"byteLength":796956,
+			"byteOffset":1685472,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":793020,
-			"byteOffset":2472316,
+			"byteLength":796956,
+			"byteOffset":2482428,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":528680,
-			"byteOffset":3265336,
+			"byteLength":531304,
+			"byteOffset":3279384,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":566280,
-			"byteOffset":3794016,
+			"byteOffset":3810688,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":48,
-			"byteOffset":4360296,
+			"byteOffset":4376968,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":48,
-			"byteOffset":4360344,
+			"byteOffset":4377016,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":32,
-			"byteOffset":4360392,
+			"byteOffset":4377064,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":12,
-			"byteOffset":4360424,
+			"byteOffset":4377096,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":352800,
-			"byteOffset":4360436,
+			"byteLength":350904,
+			"byteOffset":4377108,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":352800,
-			"byteOffset":4713236,
+			"byteLength":350904,
+			"byteOffset":4728012,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":235200,
-			"byteOffset":5066036,
+			"byteLength":233936,
+			"byteOffset":5078916,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":144786,
-			"byteOffset":5301236,
+			"byteOffset":5312852,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":18876,
-			"byteOffset":5446024,
+			"byteLength":18696,
+			"byteOffset":5457640,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":18876,
-			"byteOffset":5464900,
+			"byteLength":18696,
+			"byteOffset":5476336,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":12584,
-			"byteOffset":5483776,
+			"byteLength":12464,
+			"byteOffset":5495032,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":6594,
-			"byteOffset":5496360,
+			"byteOffset":5507496,
 			"target":34963
 		}
 	],
@@ -637,7 +634,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":5502956,
+			"byteLength":5514092,
 			"uri":"BaalshaminTemple.bin"
 		}
 	]
