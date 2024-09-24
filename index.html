@@ -204,6 +204,14 @@
                 e.preventDefault(); // Prevent scrolling when interacting with model
             }
         });
+
+        // Remove Model before reload page
+        window.addEventListener('beforeunload', function() {
+                const arModel = document.getElementById('arModel');
+                if (arModel) {
+                    arModel.remove(); // Remove Model before reload page
+                }
+        });
     </script>
 </body>
 </html>
