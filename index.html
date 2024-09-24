@@ -10,37 +10,35 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: black; /* Background color */
-            color: white; /* Text color */
+            background-color: black;
+            color: white;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
         .model-container {
-            position: relative; /* Makes the spinner relative to this container */
+            position: relative;
             width: 100%;
-            height: 400px; /* Adjust as needed */
-            display: flex; /* Flexbox for easier centering */
-            justify-content: center; /* Horizontally centers the spinner */
-            align-items: center; /* Vertically centers the spinner */
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         model-viewer {
             width: 100%;
             height: 400px;
             background-color: black;
         }
-
         .spinner {
-            position: absolute; /* Positioning the spinner relative to the 3D model container */            
-            transform: translate(-50%, -50%); /* Correctly shifts the spinner back by half of its width and height */
+            position: absolute;
+            transform: translate(-50%, -50%);
             width: 50px;
             height: 50px;
-            border: 5px solid rgba(255, 255, 255, 0.3); /* Outer border for the spinner */
-            border-top: 5px solid white; /* Inner border for the spinner animation */
-            border-radius: 50%; /* Making the spinner circular */
-            animation: spin 1s linear infinite; /* Adding rotation animation */
-            z-index: 10; /* Ensuring the spinner stays above the model */
-            box-sizing: border-box; /* Ensuring padding and borders are included in the element's total width and height */
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top: 5px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            z-index: 10;
         }
         @keyframes spin {
             0% { transform: rotate(0deg); }
@@ -49,7 +47,6 @@
         .hide {
             display: none;
         }
-        /* Log container */
         #log {
             margin: 20px;
             color: white;
@@ -59,68 +56,83 @@
 </head>
 <body>
     <div class="model-container">
-        <!-- Spinner for loading animation -->
         <div id="spinner" class="spinner"></div>
-        
-        <model-viewer id="arModel" src="BaalshaminTemple.gltf" scale="0.3 0.3 0.3" ar ar-modes="scene-viewer webxr quick-look" environment-image="neutral" auto-rotate camera-controls>
-            <!-- Hidden slot element used by Model Viewer for the custom AR button -->
-            <button slot="ar-button" id="customArButton">View in AR</button>
-        </model-viewer>
+        <model-viewer id="arModel" src="BaalshaminTemple.gltf" scale="0.3 0.3 0.3" ar ar-modes="scene-viewer webxr quick-look" environment-image="neutral" auto-rotate camera-controls></model-viewer>
     </div>
 
     <!-- Log section -->
     <p id="log">Loading status will appear here...</p>
 
     <script>
-        // Получаем элемент для отображения логов
+        // Log function to display debug info on the page
         const logElement = document.getElementById('log');
-
-        // Функция для обновления лога на странице
         function updateLog(message) {
-            logElement.innerHTML += `<br>${message}`; // Добавляем новое сообщение в лог
+            logElement.innerHTML += `<br>${message}`;
         }
 
-        // Spinner
+        // Spinner and model references
         const spinner = document.getElementById('spinner');
         const arModel = document.getElementById('arModel');
 
-        // Пример использования логов на разных этапах загрузки
-        arModel.addEventListener('load', () => {
-            updateLog('Model loaded successfully.');
-        });
-
-        arModel.addEventListener('model-visibility', (event) => {
-            if (event.detail.visible) {
-                updateLog('Model is fully visible.');
-                setTimeout(() => {
-                    spinner.classList.add('hide'); // Прячем спиннер с задержкой
-                }, 300); // Задержка 300 миллисекунд
-            } else {
-                updateLog('Model is not fully visible yet.');
-            }
-        });
-
-        arModel.addEventListener('error', (event) => {
-            updateLog(`Error occurred: ${event.message}`);
-        });
-
-        arModel.addEventListener('progress', (event) => {
-            updateLog(`Progress: ${event.loaded} bytes loaded.`);
-        });
-
-        // Remove Model before reload page
-        window.addEventListener('beforeunload', function() {
-            const canvas = document.querySelector('canvas');
+        // Initialize WebGL diagnostics
+        try {
+            const canvas = document.createElement('canvas');
             const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-            if (gl) {
-                gl.getExtension('WEBGL_lose_context').loseContext(); // Освобождение WebGL контекста
+            if (!gl) {
+                updateLog('WebGL context could not be initialized.');
+            } else {
+                updateLog('WebGL context successfully initialized.');
             }
+        } catch (error) {
+            updateLog(`WebGL error: ${error.message}`);
+        }
 
+        // Add detailed event listeners for the model loading process
+        window.addEventListener('load', function() {
+            updateLog('Page loaded, attempting to initialize model...');
 
+            // Check if the model element exists
             if (arModel) {
-                updateLog('Removing model before page unload.');
-                arModel.remove(); // Удаляем модель перед обновлением страницы
+                updateLog('Model element found, starting load process...');
+
+                arModel.addEventListener('load', () => {
+                    updateLog('Model loaded successfully.');
+                });
+
+                arModel.addEventListener('model-visibility', (event) => {
+                    if (event.detail.visible) {
+                        updateLog('Model is fully visible.');
+                        setTimeout(() => {
+                            spinner.classList.add('hide'); // Hide spinner with delay
+                        }, 300);
+                    } else {
+                        updateLog('Model is not fully visible yet.');
+                    }
+                });
+
+                arModel.addEventListener('error', (event) => {
+                    updateLog(`Model load error: ${event.message}`);
+                });
+
+                arModel.addEventListener('progress', (event) => {
+                    updateLog(`Progress: ${event.loaded} bytes loaded.`);
+                });
+            } else {
+                updateLog('Model element not found!');
             }
+        });
+
+        // Handle page unload to free resources
+        window.addEventListener('beforeunload', function() {
+            updateLog('Page is about to unload, removing model...');
+            if (arModel) {
+                arModel.remove(); // Remove model before the page unloads
+            }
+
+            // Optionally delay the unload process to ensure cleanup
+            setTimeout(() => {
+                updateLog('Page is reloading after delay.');
+            }, 1000); // 1 second delay before page reload
         });
     </script>
 </body>
