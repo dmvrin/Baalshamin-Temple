@@ -110,6 +110,13 @@
 
         // Remove Model before reload page
         window.addEventListener('beforeunload', function() {
+            const canvas = document.querySelector('canvas');
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (gl) {
+                gl.getExtension('WEBGL_lose_context').loseContext(); // Освобождение WebGL контекста
+            }
+
+
             if (arModel) {
                 updateLog('Removing model before page unload.');
                 arModel.remove(); // Удаляем модель перед обновлением страницы
