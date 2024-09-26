@@ -148,28 +148,68 @@
         loadFile('BaalshaminTemple.gltf')
             .then(() => {
                 console.log('gltf loaded');
+                //document.getElementById('loadingStatus').innerText = 'gltf loaded';
                 return loadFile('BaalshaminTemple.bin');
             })
             .then(() => {
                 console.log('bin loaded');
+                //document.getElementById('loadingStatus').innerText = 'bin loaded';
+                return loadFile('BaalshaminTemple_lowpoly_v008_export_Walls_Normal.jpg');
+            })
+            .then(() => {
+                console.log('Walls Normal loaded');
+                //document.getElementById('loadingStatus').innerText = 'Walls Normal loaded';
                 return loadFile('BaalshaminTemple_lowpoly_v008_export_Walls_Diffuse.jpg');
             })
             .then(() => {
-                console.log('Texture 1 loaded');
+                console.log('Walls Diffuse loaded');
+                //document.getElementById('loadingStatus').innerText = 'Walls Diffuse loaded';
+                return loadFile('BaalshaminTemple_lowpoly_v008_export_Floor_Normal.jpg');
+            })
+            .then(() => {
+                console.log('Floor Normal loaded');
+                //document.getElementById('loadingStatus').innerText = 'Floor Normal loaded';
+                return loadFile('BaalshaminTemple_lowpoly_v008_export_Floor_Diffuse.jpg');
+            })
+            .then(() => {
+                console.log('Floor Diffuse loaded');
+                //document.getElementById('loadingStatus').innerText = 'Floor Diffuse loaded';
+                return loadFile('BaalshaminTemple_lowpoly_v008_export_PilarsOrnaments_Normal.jpg');
+            })
+            .then(() => {
+                console.log('Pilars Ornaments Normal loaded');
+                //document.getElementById('loadingStatus').innerText = 'Pilars Ornaments Normal loaded';
+                return loadFile('BaalshaminTemple_lowpoly_v008_export_PilarsOrnaments_Diffuse.jpg');
+            })
+            .then(() => {
+                console.log('Pilars Ornaments Diffuse loaded');
+                //document.getElementById('loadingStatus').innerText = 'Pilars Ornaments Diffuse loaded';
+                return loadFile('BaalshaminTemple_lowpoly_v008_export_FloorSand_Diffuse.jpg');
+            })
+            .then(() => {
+                console.log('Floor Sand Diffuse loaded');
+                //document.getElementById('loadingStatus').innerText = 'Floor Sand Diffuse loaded';
+                return loadFile('BaalshaminTemple_lowpoly_v008_export_Inside_Normal.jpg');
+            })
+            .then(() => {
+                console.log('Inside Normal loaded');
+                //document.getElementById('loadingStatus').innerText = 'Inside Normal loaded';
                 return loadFile('BaalshaminTemple_lowpoly_v008_export_Inside_Diffuse.jpg');
             })
             .then(() => {
-                console.log('Texture 2 loaded');
+                console.log('Inside Diffuse loaded');
+                //document.getElementById('loadingStatus').innerText = 'Inside Diffuse loaded';
                 return loadFile('QR.png');
             })
             .then(() => {
                 console.log('QR loaded');
-                // document.getElementById('loadingStatus').innerText = 'All files loaded!';
+                //document.getElementById('loadingStatus').innerText = 'All files loaded!';
             })
             .catch(error => {
                 console.error('Loading error:', error);
-                document.getElementById('loadingStatus').innerText = 'Loading failed!';
+                //document.getElementById('loadingStatus').innerText = 'Loading failed!';
             });
+
     </script>
 
     
