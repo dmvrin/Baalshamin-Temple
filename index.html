@@ -161,61 +161,7 @@
             })
             .then(() => {
                 console.log('bin loaded');
-                document.getElementById('loadingStatus').innerText = '..';
-                return loadFile('BaalshaminTemple_lowpoly_v008_export_Walls_Normal.jpg');
-            })
-            .then(() => {
-                console.log('Walls Normal loaded');
-                document.getElementById('loadingStatus').innerText = '-';
-                return loadFile('BaalshaminTemple_lowpoly_v008_export_Walls_Diffuse.jpg');
-            })
-            .then(() => {
-                console.log('Walls Diffuse loaded');
-                document.getElementById('loadingStatus').innerText = '\';
-                return loadFile('BaalshaminTemple_lowpoly_v008_export_Floor_Normal.jpg');
-            })
-            .then(() => {
-                console.log('Floor Normal loaded');
-                document.getElementById('loadingStatus').innerText = '|';
-                return loadFile('BaalshaminTemple_lowpoly_v008_export_Floor_Diffuse.jpg');
-            })
-            .then(() => {
-                console.log('Floor Diffuse loaded');
-                document.getElementById('loadingStatus').innerText = '/';
-                return loadFile('BaalshaminTemple_lowpoly_v008_export_PilarsOrnaments_Normal.jpg');
-            })
-            .then(() => {
-                console.log('Pilars Ornaments Normal loaded');
-                document.getElementById('loadingStatus').innerText = '-.';
-                return loadFile('BaalshaminTemple_lowpoly_v008_export_PilarsOrnaments_Diffuse.jpg');
-            })
-            .then(() => {
-                console.log('Pilars Ornaments Diffuse loaded');
-                document.getElementById('loadingStatus').innerText = '\.';
-                return loadFile('BaalshaminTemple_lowpoly_v008_export_FloorSand_Diffuse.jpg');
-            })
-            .then(() => {
-                console.log('Floor Sand Diffuse loaded');
-                document.getElementById('loadingStatus').innerText = '|.';
-                return loadFile('BaalshaminTemple_lowpoly_v008_export_Inside_Normal.jpg');
-            })
-            .then(() => {
-                console.log('Inside Normal loaded');
-                document.getElementById('loadingStatus').innerText = '/.';
-                return loadFile('BaalshaminTemple_lowpoly_v008_export_Inside_Diffuse.jpg');
-            })
-            .then(() => {
-                console.log('Inside Diffuse loaded');
-                document.getElementById('loadingStatus').innerText = '-..';
-                return loadFile('QR.png');
-            })
-            .then(() => {
-                console.log('QR loaded');
-                document.getElementById('loadingStatus').innerText = '';
-            })
-            .catch(error => {
-                console.error('Loading error:', error);
-                //document.getElementById('loadingStatus').innerText = 'Loading failed!';
+                document.getElementById('loadingStatus').innerText = '..';                
             });
 
     </script>
@@ -226,7 +172,7 @@
         <!-- Spinner for loading animation -->
         <div id="spinner" class="spinner"></div>
         
-        <model-viewer id="arModel" src="BaalshaminTemple.gltf" scale="0.3 0.3 0.3" ar ar-modes="scene-viewer webxr quick-look" environment-image="neutral" auto-rotate camera-controls>
+        <model-viewer id="arModel" src="BaalshaminTemple.gltf" scale="0.3" ar ar-modes="scene-viewer webxr quick-look" environment-image="neutral" auto-rotate camera-controls>
             <!-- Hidden slot element used by Model Viewer for the custom AR button -->
             <button slot="ar-button" id="customArButton">View in AR</button>
         </model-viewer>
