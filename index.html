@@ -162,7 +162,7 @@
 
 
         //const audioControl = document.getElementById('audioControl');
-        const backgroundAudio = document.getElementById('backgroundAudio');
+        //const backgroundAudio = document.getElementById('backgroundAudio');
         const arModel = document.getElementById('arModel');
         const spinner = document.getElementById('spinner');
         const descriptionText = document.getElementById('descriptionText');
@@ -214,12 +214,12 @@
         });
 
         // Remove Model before reload page
-        window.addEventListener('beforeunload', function() {
-                const arModel = document.getElementById('arModel');
-                if (arModel) {
-                    arModel.remove(); // Remove Model before reload page
-                }
-        });
+        //window.addEventListener('beforeunload', function() {
+        //        const arModel = document.getElementById('arModel');
+        //        if (arModel) {
+        //            arModel.remove(); // Remove Model before reload page
+        //        }
+       // });
 
         
 
