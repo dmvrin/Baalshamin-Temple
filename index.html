@@ -148,17 +148,17 @@
         loadFile('BaalshaminTemple.gltf')
             .then(() => {
                 console.log('gltf loaded');
-                //document.getElementById('loadingStatus').innerText = 'gltf loaded';
+                document.getElementById('loadingStatus').innerText = ',';
                 return loadFile('BaalshaminTemple.bin');
             })
             .then(() => {
                 console.log('bin loaded');
-                //document.getElementById('loadingStatus').innerText = 'bin loaded';
+                document.getElementById('loadingStatus').innerText = '..';
                 return loadFile('BaalshaminTemple_lowpoly_v008_export_Walls_Normal.jpg');
             })
             .then(() => {
                 console.log('Walls Normal loaded');
-                //document.getElementById('loadingStatus').innerText = 'Walls Normal loaded';
+                document.getElementById('loadingStatus').innerText = '-';
                 return loadFile('BaalshaminTemple_lowpoly_v008_export_Walls_Diffuse.jpg');
             })
             .then(() => {
