@@ -132,11 +132,8 @@
 
     <div id="loadingStatus">.</div>
     <script>
-        const arModell = document.getElementById('arModel');
-        if (arModell) {
-            arModell.remove(); // Remove Model before reload page
-        }
-        document.getElementById('loadingStatus').innerText = '.,';
+       
+        
         
         function loadFile(url) {
             return new Promise((resolve, reject) => {
