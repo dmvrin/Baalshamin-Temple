@@ -172,7 +172,7 @@
         const descriptionText = document.getElementById('descriptionText');
         const enButton = document.getElementById('enButton');
         const frButton = document.getElementById('frButton');
-        const customArButton = document.getElementById('customArButton'); 
+        //const customArButton = document.getElementById('customArButton'); 
 
         //Hide Ar Button
         customArButton.style.display = 'none';
@@ -185,10 +185,10 @@
                     spinner.classList.add('hide'); // Hides the spinner with a delay
 
                     // Check if mobile device
-                    const isMobileOrTablet = /Mobi|Android|iPad|iPhone/i.test(navigator.userAgent);
-                        if (isMobileOrTablet) {
-                            customArButton.style.display = 'block'; // Display Ar button on mobile devices
-                        }
+                    //const isMobileOrTablet = /Mobi|Android|iPad|iPhone/i.test(navigator.userAgent);
+                    //    if (isMobileOrTablet) {
+                    //        customArButton.style.display = 'block'; // Display Ar button on mobile devices
+                    //    }
                 }, 300); // Adds a 300 millisecond delay
             }
         });
