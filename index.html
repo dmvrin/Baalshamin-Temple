@@ -239,7 +239,7 @@
         });
 
         // Check if 'e' is defined and getFieldOfView function exists
-        if (e && typeof e.getFieldOfView === 'function') {
+        if (typeof e !== 'undefined' && e.getFieldOfView) {
             const fieldOfView = e.getFieldOfView();
             // Additional logic using fieldOfView
         } else {
