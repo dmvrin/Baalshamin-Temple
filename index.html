@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temple of Baalshamin</title>
     <!-- model-viewer -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer@latest" defer></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@4.0.0" defer></script>
+
     <style>
         body {
             margin: 0;
@@ -236,6 +237,23 @@
         arModel.addEventListener('webglcontextrestored', () => {
             console.log('WebGL context successfully restored.');
         });
+
+        // Check if 'e' is defined and getFieldOfView function exists
+        if (e && typeof e.getFieldOfView === 'function') {
+            const fieldOfView = e.getFieldOfView();
+            // Additional logic using fieldOfView
+        } else {
+            console.warn('Field of view is not accessible. The object "e" may be undefined.');
+        }
+
+        // Global handler for unhandled promise rejections to prevent script interruption
+        window.addEventListener("unhandledrejection", function(event) {
+            console.warn("Unhandled promise rejection:", event.reason);
+        });
+
+
+
+
 
         // Remove Model before reload page
         //window.addEventListener('beforeunload', function() {
