@@ -253,6 +253,43 @@
 
 
 
+        // Check if WebGL is supported and context is not lost
+        const canvas = document.createElement('canvas');
+        const gl = canvas.getContext('webgl');
+        if (!gl) {
+            console.error("WebGL is not supported on this device.");
+        } else {
+            console.log("WebGL initialized successfully.");
+
+            // Ensure XR is available only after WebGL initialization
+            if (this.threeRenderer && this.threeRenderer.xr && this.threeRenderer.xr.isPresenting) {
+                // XR is supported and initialized
+                console.log("XR is available and presenting.");
+                
+                // Call XR-related functions
+                const xrSession = this.threeRenderer.xr.getSession();
+                if (xrSession) {
+                    console.log("XR session started:", xrSession);
+                    // Logic for using XR goes here
+                } else {
+                    console.warn("Unable to start XR session.");
+                }
+            } else {
+                console.warn("XR is not available or not presenting.");
+            }
+        }
+
+        // Handle WebGL context loss
+        canvas.addEventListener('webglcontextlost', (event) => {
+            event.preventDefault();
+            console.warn("WebGL context lost.");
+        });
+
+        // Handle WebGL context restoration
+        canvas.addEventListener('webglcontextrestored', () => {
+            console.log("WebGL context restored.");
+        });
+
 
 
         // Remove Model before reload page
