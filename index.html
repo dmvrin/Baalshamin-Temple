@@ -226,6 +226,20 @@
             }
         }
 
+        arModel.addEventListener('load', () => {
+            const model = arModel.model; // Access the loaded model
+            if (model) {
+                model.traverse((node) => {
+                    if (node.isMesh && node.material) {
+                        node.material.metalness = 0;   // Set metalness to 0 to remove shininess
+                        node.material.roughness = 1;   // Set roughness to 1 for a fully matte surface
+                        node.material.needsUpdate = true; // Apply changes to the material
+                    }
+                });
+            }
+        });
+
+
  /*
         // Prevent page scroll while interacting with the 3D model, but allow interaction with the button
         arModel.addEventListener('touchmove', (e) => {
