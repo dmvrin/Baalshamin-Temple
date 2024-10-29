@@ -178,19 +178,26 @@
         //Hide Ar Button
         customArButton.style.display = 'none';
        
-        // Hide the spinner when the model is fully visible
+        // Show AR button only on mobile devices (phones and tablets) and hide the spinner when the model is fully loaded
         arModel.addEventListener('model-visibility', (event) => {
             if (event.detail.visible) {
-                console.log('Model is fully visible');
                 setTimeout(() => {
-                    spinner.classList.add('hide'); // Hides the spinner with a delay
+                    spinner.classList.add('hide'); // Hide loading spinner
 
-                    // Check if mobile device
-                    //const isMobileOrTablet = /Mobi|Android|iPad|iPhone/i.test(navigator.userAgent);
-                    //    if (isMobileOrTablet) {
-                    //        customArButton.style.display = 'block'; // Display Ar button on mobile devices
-                    //    }
-                }, 300); // Adds a 300 millisecond delay
+                    // Check if the device is mobile or tablet and show AR button accordingly
+                    const isMobileOrTablet = /Mobi|Android|iPad|iPhone/i.test(navigator.userAgent);
+                    if (isMobileOrTablet) {
+                        customArButton.style.display = 'block'; // Show AR button only on mobile and tablet
+                    }
+
+                    // Check if 'event' has getFieldOfView function
+                    if (event.getFieldOfView && typeof event.getFieldOfView === 'function') {
+                        const fieldOfView = event.getFieldOfView();
+                        console.log("Field of view:", fieldOfView);
+                    } else {
+                        console.warn("Field of view is not accessible. The object 'event' may not contain getFieldOfView.");
+                    }
+                }, 300); // 300 ms delay for smoother transition
             }
         });
 
@@ -237,21 +244,7 @@
         arModel.addEventListener('webglcontextrestored', () => {
             console.log('WebGL context successfully restored.');
         });
-
-        // Check if 'e' is defined and getFieldOfView function exists
-        if (typeof e !== 'undefined' && e.getFieldOfView) {
-            const fieldOfView = e.getFieldOfView();
-            // Additional logic using fieldOfView
-        } else {
-            console.warn('Field of view is not accessible. The object "e" may be undefined.');
-        }
-
-        // Global handler for unhandled promise rejections to prevent script interruption
-        window.addEventListener("unhandledrejection", function(event) {
-            console.warn("Unhandled promise rejection:", event.reason);
-        });
-
-
+        
 
         // Check if WebGL is supported and context is not lost
         const canvas = document.createElement('canvas');
@@ -279,17 +272,21 @@
             }
         }
 
-        // Handle WebGL context loss
+        // Handle WebGL context loss on the canvas
         canvas.addEventListener('webglcontextlost', (event) => {
             event.preventDefault();
             console.warn("WebGL context lost.");
         });
 
-        // Handle WebGL context restoration
+        // Handle WebGL context restoration on the canvas
         canvas.addEventListener('webglcontextrestored', () => {
             console.log("WebGL context restored.");
         });
 
+        // Global handler for unhandled promise rejections to prevent script interruption
+        window.addEventListener("unhandledrejection", function(event) {
+            console.warn("Unhandled promise rejection:", event.reason);
+        });
 
 
         // Remove Model before reload page
