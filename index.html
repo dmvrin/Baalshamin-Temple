@@ -226,6 +226,17 @@
             }
         });
 
+        // Handle WebGL context lost and attempt to prevent full loss
+        arModel.addEventListener('webglcontextlost', (event) => {
+            event.preventDefault(); // Prevents complete loss of WebGL context
+            console.warn('WebGL context lost. Attempting to restore.');
+        });
+
+        // Log WebGL context restoration
+        arModel.addEventListener('webglcontextrestored', () => {
+            console.log('WebGL context successfully restored.');
+        });
+
         // Remove Model before reload page
         //window.addEventListener('beforeunload', function() {
         //        const arModel = document.getElementById('arModel');
