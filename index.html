@@ -168,38 +168,39 @@
 
         //const audioControl = document.getElementById('audioControl');
         //const backgroundAudio = document.getElementById('backgroundAudio');
-        const arModel = document.getElementById('arModel');
-        const spinner = document.getElementById('spinner');
+        //const arModel = document.getElementById('arModel');
+        //const spinner = document.getElementById('spinner');
         const descriptionText = document.getElementById('descriptionText');
         const enButton = document.getElementById('enButton');
         const frButton = document.getElementById('frButton');
         //const customArButton = document.getElementById('customArButton'); 
 
-        //Hide Ar Button
-        customArButton.style.display = 'none';
-       
+        
         // Show AR button only on mobile devices (phones and tablets) and hide the spinner when the model is fully loaded
-        arModel.addEventListener('model-visibility', (event) => {
-            if (event.detail.visible) {
-                setTimeout(() => {
-                    spinner.classList.add('hide'); // Hide loading spinner
+        document.addEventListener("DOMContentLoaded", () => {
+            const arModel = document.getElementById('arModel');
+            const spinner = document.getElementById('spinner');
+            const customArButton = document.getElementById('customArButton');
+            
+            // Initially hide the AR button
+            customArButton.style.display = 'none';
 
-                    // Check if the device is mobile or tablet and show AR button accordingly
-                    const isMobileOrTablet = /Mobi|Android|iPad|iPhone/i.test(navigator.userAgent);
-                    if (isMobileOrTablet) {
-                        customArButton.style.display = 'block'; // Show AR button only on mobile and tablet
-                    }
+            // Show AR button only on mobile devices (phones and tablets) and hide spinner when the model is fully loaded
+            arModel.addEventListener('model-visibility', (event) => {
+                if (event.detail.visible) {
+                    setTimeout(() => {
+                        spinner.classList.add('hide'); // Hide loading spinner
 
-                    // Check if 'event' has getFieldOfView function
-                    if (event.getFieldOfView && typeof event.getFieldOfView === 'function') {
-                        const fieldOfView = event.getFieldOfView();
-                        console.log("Field of view:", fieldOfView);
-                    } else {
-                        console.warn("Field of view is not accessible. The object 'event' may not contain getFieldOfView.");
-                    }
-                }, 300); // 300 ms delay for smoother transition
-            }
+                        // Check if the device is mobile or tablet based on userAgent
+                        const isMobileOrTablet = /Mobi|Android|iPad|iPhone/i.test(navigator.userAgent);
+                        if (isMobileOrTablet) {
+                            customArButton.style.display = 'block'; // Show AR button on mobile and tablet devices
+                        }
+                    }, 300); // 300 ms delay for smoother transition
+                }
+            });
         });
+
 
 
         // Language switch function
@@ -226,6 +227,7 @@
             }
         }
 
+        //Material toughness
         arModel.addEventListener('load', () => {
             const model = arModel.model; // Access the loaded model
             if (model) {
