@@ -242,7 +242,10 @@
         });
 
 
- /*
+
+
+
+ 
         // Prevent page scroll while interacting with the 3D model, but allow interaction with the button
         arModel.addEventListener('touchmove', (e) => {
             if (e.target.tagName === 'MODEL-VIEWER') {
@@ -289,30 +292,30 @@
         }
 
         // Handle WebGL context loss on the canvas
-            canvas.addEventListener('webglcontextlost', (event) => {
-                event.preventDefault();
-                console.warn("WebGL context lost.");
-            });
+        canvas.addEventListener('webglcontextlost', (event) => {
+            event.preventDefault();
+            console.warn("WebGL context lost.");
+        });
 
-            // Handle WebGL context restoration on the canvas
-            canvas.addEventListener('webglcontextrestored', () => {
-                console.log("WebGL context restored.");
-            });
+        // Handle WebGL context restoration on the canvas
+        canvas.addEventListener('webglcontextrestored', () => {
+            console.log("WebGL context restored.");
+        });
 
-            // Global handler for unhandled promise rejections to prevent script interruption
-            window.addEventListener("unhandledrejection", function(event) {
-                console.warn("Unhandled promise rejection:", event.reason);
-            });
+        // Global handler for unhandled promise rejections to prevent script interruption
+        window.addEventListener("unhandledrejection", function(event) {
+            console.warn("Unhandled promise rejection:", event.reason);
+        });
 
+/*
+        //Remove Model before reload page
+        window.addEventListener('beforeunload', function() {
+            const arModel = document.getElementById('arModel');
+            if (arModel) {
+                arModel.remove(); // Remove Model before reload page
+            }
+        });
 */
-        // Remove Model before reload page
-        //window.addEventListener('beforeunload', function() {
-        //        const arModel = document.getElementById('arModel');
-        //        if (arModel) {
-        //            arModel.remove(); // Remove Model before reload page
-        //        }
-       // });
-
         
 
     </script>
