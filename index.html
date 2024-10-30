@@ -183,7 +183,7 @@
             const customArButton = document.getElementById('customArButton');
             
             // Initially hide the AR button
-            //customArButton.style.display = 'none';
+            customArButton.style.display = 'block'; //none
 
             // Show AR button only on mobile devices (phones and tablets) and hide spinner when the model is fully loaded
             arModel.addEventListener('model-visibility', (event) => {
